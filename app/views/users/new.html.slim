@@ -1,14 +1,13 @@
 h1 ユーザー新規登録
 
 = form_with model: @user, local: true do |f|
-    div
+    .form-group
         = f.label :email
-        = f.text_field :email
-    div
+        = f.text_field :email, class: 'form-control'
+    .form-group
         = f.label :password
-        = f.password_field :password
-    div
+        = f.password_field :password, class: 'form-control'
+    .form-group
         = f.label :password_confirmation
-        = f.password_field :password_confirmation
-    div
-        = f.submit
+        = f.password_field :password_confirmation, class: 'form-control'
+    = f.submit '登録する', class: 'btn btn-primary'

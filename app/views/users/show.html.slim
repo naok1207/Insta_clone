@@ -1,5 +1,5 @@
 h1 ユーザ詳細
 
-p= @user.email
+p= "#{User.human_attribute_name(:email)}: #{@user.email}"
 
 = link_to('Logout', logout_path, method: :delete)
