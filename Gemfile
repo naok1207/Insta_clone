@@ -32,7 +32,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'slim-rails'
 gem 'html2slim'
 gem 'annotate'
-# gem 'sorcery'
+gem 'sorcery'
 # gem 'sidekiq', '~> 5.0'
 # gem 'webpacker'
 
@@ -58,7 +58,6 @@ group :development do
   gem 'binding_of_caller'
   gem 'pry-byebug'
   gem 'pry-rails'
-  # gem 'rubocop-rails', require: false
 end
 
 group :test do

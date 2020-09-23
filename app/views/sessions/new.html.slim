@@ -1,0 +1,11 @@
+h1 ログイン
+
+= form_with scope: :session, local: true do |f|
+    div
+        = f.label :email
+        = f.text_field :email
+    div
+        = f.label :password
+        = f.password_field :password
+    div
+        = f.submit "Login"
