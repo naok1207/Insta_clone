@@ -31,7 +31,7 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'slim-rails'
 gem 'html2slim'
-# gem 'annotate'
+gem 'annotate'
 # gem 'sorcery'
 # gem 'sidekiq', '~> 5.0'
 # gem 'webpacker'
