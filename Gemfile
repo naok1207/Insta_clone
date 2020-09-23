@@ -34,6 +34,7 @@ gem 'html2slim'
 gem 'annotate'
 gem 'sorcery'
 gem 'redis-rails'
+gem 'rails-i18n'
 # gem 'webpacker'
 
 
