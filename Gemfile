@@ -33,7 +33,7 @@ gem 'slim-rails'
 gem 'html2slim'
 gem 'annotate'
 gem 'sorcery'
-# gem 'sidekiq', '~> 5.0'
+gem 'redis-rails'
 # gem 'webpacker'
 
 
