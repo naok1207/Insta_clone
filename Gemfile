@@ -54,10 +54,10 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
 
   gem 'rubocop'
-  # gem 'better_errors'
-  # gem 'binding_of_caller'
-  # gem 'pry-byebug'
-  # gem 'pry-rails'
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'pry-byebug'
+  gem 'pry-rails'
   # gem 'rubocop-rails', require: false
 end
 
