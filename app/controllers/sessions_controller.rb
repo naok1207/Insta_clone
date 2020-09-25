@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
   def create
     @user = login(session_params[:email], session_params[:password])
     if @user
-      redirect_back_or_to @user
+      redirect_back_or_to @user, notice: 'ログインしました。'
     else
       render :new
     end
@@ -15,7 +15,7 @@ class SessionsController < ApplicationController
 
   def destroy
     logout
-    redirect_to login_path
+    redirect_to login_path, notice: 'ログアウトしました。'
   end
 
   def session_params

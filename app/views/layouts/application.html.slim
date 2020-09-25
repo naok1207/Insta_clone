@@ -9,5 +9,8 @@ html
     = javascript_include_tag 'application'
 
   body
-    .container
+    = render 'shared/header'
+    -if flash.notice.present?
+      .alert.alert-success= flash.notice
+    .container.mt-5
       = yield
