@@ -1,3 +1,11 @@
 @import 'bootstrap-material-design/dist/css/bootstrap-material-design';
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
+
+/**************** form エラーメッセージ css 追記*******************/
+.alert-danger {
+    border-radius: 8px;
+    ul {
+        padding-left: 20px;
+    }
+}

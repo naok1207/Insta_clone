@@ -10,7 +10,6 @@ html
 
   body
     = render 'shared/header'
-    -if flash.notice.present?
-      .alert.alert-success= flash.notice
+    = render 'shared/flash_message'
     .container.mt-5
       = yield

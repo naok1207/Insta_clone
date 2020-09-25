@@ -1,6 +1,7 @@
 h1.text-center.mb-3 = yield(:form_title)
 .row.justify-content-center
     = form_with model: @user, local: true, class: 'col-6' do |f|
+        = render 'shared/error_messages', object: @user
         .form-group
             i.fas.fa-envelope.prefix.grey-text.mr-1
             = f.label :email

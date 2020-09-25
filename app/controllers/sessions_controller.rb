@@ -9,6 +9,7 @@ class SessionsController < ApplicationController
     if @user
       redirect_back_or_to @user, notice: 'ログインしました。'
     else
+      flash.now[:denger] = "ログインに失敗しました"
       render :new
     end
   end
