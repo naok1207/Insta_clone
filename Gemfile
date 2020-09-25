@@ -35,8 +35,8 @@ gem 'annotate'
 gem 'sorcery'
 gem 'redis-rails'
 gem 'rails-i18n'
-# gem 'webpacker'
-
+gem 'jquery-rails'
+gem 'popper_js'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
