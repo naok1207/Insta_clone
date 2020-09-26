@@ -28,3 +28,4 @@
 
 # Ignore gems
 /vendor/*
+dump.rdb
