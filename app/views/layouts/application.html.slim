@@ -1,0 +1,15 @@
+doctype html
+html
+  head
+    title
+      | InstaClone
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag    'application', media: 'all'
+    = javascript_include_tag 'application'
+
+  body
+    = render 'shared/header'
+    = render 'shared/flash_message'
+    .container.mt-5
+      = yield

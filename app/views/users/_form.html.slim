@@ -1,0 +1,22 @@
+h1.text-center.mb-3 = yield(:form_title)
+.row.justify-content-center
+    = form_with model: @user, local: true, class: 'col-6' do |f|
+        = render 'shared/error_messages', object: @user
+        .form-group
+            i.fas.fa-envelope.prefix.grey-text.mr-1
+            = f.label :email
+            = f.text_field :email, class: 'form-control', placeholder: "Email"
+        .form-group
+            i.fas.fa-lock.prefix.grey-text.mr-1
+            = f.label :password
+            = f.password_field :password, class: 'form-control', placeholder: "Password"
+        .form-group
+            i.fas.fa-lock.prefix.grey-text.mr-1
+            = f.label :password_confirmation
+            = f.password_field :password_confirmation, class: 'form-control', placeholder: "Password Confirmation"
+        = button_tag type: 'submit', class: 'btn btn-raised btn-primary w-100 mt-2 mb-2' do
+            i.fas.fa-user.prefix.mr-1
+            = yield(:button_text)
+        
+        - if !logged_in?
+            = link_to 'Log in?', login_path, class: 'text-muted'
