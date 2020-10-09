@@ -3,6 +3,10 @@ h1.text-center.mb-3 = yield(:form_title)
     = form_with model: @user, local: true, class: 'col-6' do |f|
         = render 'shared/error_messages', object: @user
         .form-group
+            i.fas.fa-user.prefix.mr-1
+            = f.label :username
+            = f.text_field :username, class: 'form-control', placeholer: "Name"
+        .form-group
             i.fas.fa-envelope.prefix.grey-text.mr-1
             = f.label :email
             = f.text_field :email, class: 'form-control', placeholder: "Email"
