@@ -1,21 +1,20 @@
-nav.navbar.navbar-expand-lg.navbar-light.bg-light
+nav.navbar.navbar-expand.navbar-light.bg-light
     = link_to "Insta Clone", root_path, class: "navbar-brand"
-    button.navbar-toggler type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
-        spen.navbar-toggler-icon
-    .collapse.navbar-collapse id="navbarSupportedContent"
-        ul.navbar-nav.ml-auto
-            - if logged_in?
-                li.nav-item
-                    = link_to "新規投稿", new_post_path, class: "nav-link"
-                li.nav-item
-                    = link_to "投稿一覧", posts_path, class: "nav-link"
-                li.nav-item.dropdown
-                    a.nav-link.dropdown-toggle#navbarDropdown href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" アカウント
-                    .dropdown-menu aria-labelledby="navbarDropdown"
-                        = link_to "詳細", current_user, class: "dropdown-item"
-                        = link_to "編集", edit_user_path(current_user), class: "dropdown-item"
-                li.nav-item
-                    = link_to "ログアウト", logout_path, method: :delete, class: "nav-link"
-            - else
-                li.nav-item
-                    = link_to "ログイン", login_path, class: "nav-link"
+    ul.navbar-nav.ml-auto
+        - if logged_in?
+            li.nav-item
+                = link_to new_post_path, class: "nav-link" do
+                    i.far.fa-image
+            li.nav-item
+                = link_to posts_path, class: "nav-link" do
+                    i.fas.fa-home
+            li.nav-item.dropdown
+                a.nav-link.dropdown-toggle#navbarDropdown href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                    i.fas.fa-user.prefix.mr-1
+                .dropdown-menu.dropdown-menu-right aria-labelledby="navbarDropdown"
+                    = link_to "詳細", current_user, class: "dropdown-item"
+                    = link_to "編集", edit_user_path(current_user), class: "dropdown-item"
+                    = link_to "ログアウト", logout_path, method: :delete, class: "dropdown-item"
+        - else
+            li.nav-item
+                = link_to "ログイン", login_path, class: "nav-link"
