@@ -1,0 +1,7 @@
+.card style="width: 400px"
+    p= "Name: #{post.user.username}"
+    = link_to post do
+        .image-box
+            - post.images.each do |image|
+                = image_tag image.url, class: "card-img-top"
+        p= post.body

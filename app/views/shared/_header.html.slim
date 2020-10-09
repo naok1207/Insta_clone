@@ -4,7 +4,11 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light
         spen.navbar-toggler-icon
     .collapse.navbar-collapse id="navbarSupportedContent"
         ul.navbar-nav.ml-auto
-            - if logged_in?    
+            - if logged_in?
+                li.nav-item
+                    = link_to "新規投稿", new_post_path, class: "nav-link"
+                li.nav-item
+                    = link_to "投稿一覧", posts_path, class: "nav-link"
                 li.nav-item.dropdown
                     a.nav-link.dropdown-toggle#navbarDropdown href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" アカウント
                     .dropdown-menu aria-labelledby="navbarDropdown"

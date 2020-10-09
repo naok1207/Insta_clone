@@ -1,0 +1,10 @@
+- if @post.user == current_user
+    = link_to @post, method: :delete do
+        i.fas.fa-trash-alt
+    = link_to edit_post_path(@post) do
+        i.fas.fa-edit.ml-2
+p= "Name: #{@post.user.username}"
+p= @post.body
+.image-box
+    - @post.images.each do |image|
+        = image_tag image.url, class: "card-img-top"

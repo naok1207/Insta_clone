@@ -5,7 +5,6 @@
 #  id               :bigint           not null, primary key
 #  crypted_password :string(255)
 #  email            :string(255)      not null
-#  name             :string(255)
 #  salt             :string(255)
 #  username         :string(255)
 #  created_at       :datetime         not null
@@ -24,4 +23,6 @@ class User < ApplicationRecord
   validates :password, presence: true, length: { minimum: 3 }
   validates :password, confirmation: true
   validates :password_confirmation, presence: true
+
+  has_many :posts
 end
