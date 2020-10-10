@@ -1,14 +1,46 @@
-- if @post.user == current_user
-    = link_to @post, method: :delete do
-        i.fas.fa-trash-alt
-    = link_to edit_post_path(@post) do
-        i.fas.fa-edit.ml-2
-p= "Name: #{@post.user.username}"
-p= @post.body
-.image-box style="width: 400px;"
-    .swiper-container
-        .swiper-wrapper
-            - @post.images.each do |image|
-                .swiper-slide
-                    = image_tag image.url, class: "card-img-top"
-        .swiper-pagination
+.card.post-show
+    .image-box
+        .swiper-container
+            .swiper-wrapper
+                - @post.images.each do |image|
+                    .swiper-slide
+                        = image_tag image.url, class: "card-img-top"
+            .swiper-pagination
+    .image-info-box
+        .profile-box.p-3
+            .d-flex.align-items-center
+                = image_tag 'profile-placeholder.png', size: "40x40", class: "rounded-circle mr-2"
+                = @post.user.username
+                .ml-auto
+                    - if @post.user == current_user
+                        = link_to @post, method: :delete do
+                            i.fas.fa-trash-alt
+                        = link_to edit_post_path(@post) do
+                                i.fas.fa-edit.ml-2
+        hr.m-0
+        .post-body.p-3
+            .row.no-gutters
+                .col-2
+                    = image_tag 'profile-placeholder.png', size: "40x40", class: "rounded-circle mr-1"
+                .col-10
+                    = @post.body
+            hr
+            .row.no-gutters
+                .col-2
+                    = image_tag 'profile-placeholder.png', size: "40x40", class: "rounded-circle mr-1"
+                .col-10
+                    | ダミーコメントダミーコメントダミーコメントダミーコメントダミーコメント
+            
+            hr
+            .row.no-gutters
+                .col-2
+                    = image_tag 'profile-placeholder.png', size: "40x40", class: "rounded-circle mr-1"
+                .col-10
+                    | ダミーコメントダミーコメントダミーコメントダミーコメントダミーコメント
+            
+        hr.m-0
+        .post-comment.p-3
+            form.form-inline.mb-0
+                input type="text" class="form-control input-comment-body" placeholder="コメント"
+                button type="submit" class="btn btn-primary btn-raised"
+                    | 投稿

@@ -3,7 +3,6 @@
 @import 'font-awesome';
 @import 'swiper/css/swiper';
 
-/**************** form エラーメッセージ css 追記*******************/
 .alert-danger {
     border-radius: 8px;
     ul {
@@ -11,10 +10,69 @@
     }
 }
 
+main {
+    padding-top: 50px;
+    @media screen and (max-width: 767px) {
+        padding-top: 80px;
+    }
+}
+
+img {
+    max-width: 100%;
+}
+
+i {
+    font-size: 1.2rem;
+}
+
+.post {
+    max-width: 400px;  
+    margin: 0 auto; 
+    .card-img-top {
+        width: 400px;
+        height: 400px;
+        object-fit: cover;
+    }
+}
+
+.post-show {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    
+    .image-info-box {
+        width: 300px;
+        display: flex;
+        flex-direction: column;
+        @media screen and (max-width: 767px) {
+            width: 100%;
+          }      
+        .post-body {
+            overflow: scroll;
+            max-height: 250px;
+        }
+        .post-comment {
+            margin-top: auto;
+            .input-comment-body {
+              flex: 1;
+            }
+        }
+    }
+}
+
 .image-box {
+    width: 400px;
+    height: 400px;
+    @media screen and (max-width: 767px) {
+        width: 100%;
+    }
     img {
         object-fit: cover;
         width: 400px;
         height: 400px;
     }
+}
+
+.swiper-container {
+    width: 100%;
 }
