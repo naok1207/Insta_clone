@@ -39,6 +39,12 @@ i {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+
+    &.card {
+        flex-direction: row;
+        max-width: 700px;
+        margin: 0 auto;
+      }
     
     .image-info-box {
         width: 300px;
