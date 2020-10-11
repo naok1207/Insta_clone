@@ -28,4 +28,6 @@
 
 # Ignore gems
 /vendor/*
-dump.rdb
+
+/dump.rdb
+/public/uploads
