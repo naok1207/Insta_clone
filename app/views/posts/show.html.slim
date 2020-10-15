@@ -10,7 +10,7 @@
         .profile-box.p-3
             .d-flex.align-items-center
                 = image_tag 'profile-placeholder.png', size: "40x40", class: "rounded-circle mr-2"
-                = @post.user.username
+                .ml-2= @post.user.username
                 .ml-auto
                     - if @post.user == current_user
                         = link_to @post, method: :delete do
