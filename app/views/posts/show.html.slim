@@ -8,15 +8,18 @@
             .swiper-pagination
     .image-info-box
         .profile-box.p-3
-            .d-flex.align-items-center
-                = image_tag 'profile-placeholder.png', size: "40x40", class: "rounded-circle mr-2"
-                = @post.user.username
-                .ml-auto
-                    - if @post.user == current_user
-                        = link_to @post, method: :delete do
-                            i.fas.fa-trash-alt
-                        = link_to edit_post_path(@post) do
-                                i.fas.fa-edit.ml-2
+            .row.no-gutters
+                .col-2
+                    = image_tag 'profile-placeholder.png', size: "40x40", class: "rounded-circle mr-1"
+                .col-10
+                    .d-flex.align-items-center.h-100
+                        = @post.user.username
+                        .ml-auto
+                            - if @post.user == current_user
+                                = link_to @post, method: :delete do
+                                    i.fas.fa-trash-alt
+                                = link_to edit_post_path(@post) do
+                                        i.fas.fa-edit.ml-2
         hr.m-0
         .post-body.p-3 id='comments'
             .row.no-gutters
