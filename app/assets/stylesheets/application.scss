@@ -17,12 +17,16 @@ main {
     }
 }
 
-// img {
-//     max-width: 100%;
-// }
+img {
+    max-width: 100%;
+}
 
 i {
     font-size: 1.2rem;
+}
+
+.z-index100 {
+    z-index: 100;
 }
 
 .post {
@@ -85,4 +89,10 @@ i {
 
 .pagination {
     justify-content: center;
+}
+
+.comment {
+    i {
+        font-size: 0.8rem;
+    }
 }
