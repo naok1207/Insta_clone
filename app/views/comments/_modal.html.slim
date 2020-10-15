@@ -6,6 +6,6 @@
                 button.close type="button" data-dismiss="modal" aria-label="Colse"
                     span aria-hidden="true" &times;
             .modal-body
-                = form_with model: [@post, @comment], remote: true, class: 'd-flex flex-nowrap justify-content-between mb-0' do |f|
+                = form_with model: [post, comment], remote: true, class: 'd-flex flex-nowrap justify-content-between mb-0' do |f|
                     = f.text_field :body, class: 'form-control input-comment-body'
                     = f.submit '投稿', class: 'btn btn-primary btn-raised'

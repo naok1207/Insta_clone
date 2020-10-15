@@ -5,9 +5,11 @@ User.limit(10).each do |user|
         begin
             comment = user.comments.create!(
                 body: Faker::Hacker.say_something_smart,
-                post_id: Post.where( 'id >= ?', rand(Post.first.id..Post.last.id) ).first.id
+                post_id: Post.all.sample.id
             )
             puts "comment#{comment.id} created"
+        rescue
+            redo
         end
     end
 end

@@ -1,17 +1,16 @@
-div id="comment-#{comment.id}"
-    .row.no-gutterss
+.comment id="comment-#{comment.id}"
+    .row.no-gutters
         .col-2
             = image_tag 'profile-placeholder.png', size: "40x40", class: "rounded-circle mr-1"
-        .col-10
-            .d-flex
-                .comment-body
-                    span.font-weight-bold.mr-2 = comment.user.username
-                    = comment.body
-                .comment-link
-                    - if current_user == comment.user
-                        = link_to comment_path(comment), method: :delete, remote: true do
-                            i.fas.fa-trash-alt
-                        br
-                        = link_to edit_comment_path(comment), remote: true do
-                            i.fas.fa-edit
+        .col-9
+            .ml-1.pr-1
+                span.font-weight-bold.mr-1 = comment.user.username
+                = comment.body
+        .col-1
+            - if current_user == comment.user
+                = link_to comment_path(comment), method: :delete, remote: true do
+                    i.fas.fa-trash-alt
+                br
+                = link_to edit_comment_path(comment), remote: true do
+                    i.fas.fa-edit
     hr
