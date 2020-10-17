@@ -24,5 +24,5 @@ class Like < ApplicationRecord
   belongs_to :user
 
   # 一意制約
-  validates :user_id, uniqueness: { scope: :post_id }, unique: true
+  validates :user_id, uniqueness: { scope: :post_id }
 end

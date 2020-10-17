@@ -9,6 +9,9 @@
                         i.fas.fa-trash-alt
                     = link_to edit_post_path(post) do
                         i.fas.fa-edit.ml-2
+            - elsif current_user
+                .ml-auto
+                    = render('likes/like', post: post)
     = link_to post do
 		.swiper-container
 			.swiper-wrapper
