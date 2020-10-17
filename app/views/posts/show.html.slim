@@ -20,6 +20,8 @@
                                     i.fas.fa-trash-alt
                                 = link_to edit_post_path(@post) do
                                         i.fas.fa-edit.ml-2
+                            - elsif current_user
+                                = render('likes/like', post: @post)
         hr.m-0
         .post-body.p-3 id='comments'
             .row.no-gutters
