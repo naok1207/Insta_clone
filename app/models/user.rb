@@ -26,4 +26,19 @@ class User < ApplicationRecord
 
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
+
+  has_many :likes, dependent: :destroy
+  has_many :like_posts, through: :likes, source: :post
+
+  def like(post)
+    likes.create(post_id: post.id)
+  end
+
+  def unlike(post)
+    likes.find_by(post_id: post.id).destroy
+  end
+
+  def like?(post)
+    like_posts.include?(post)
+  end
 end
