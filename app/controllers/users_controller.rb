@@ -13,9 +13,9 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       auto_login(@user)
-      redirect_to @user, notice: "新規ユーザーを登録しました。"
+      redirect_to @user, notice: '新規ユーザーを登録しました。'
     else
-      flash.now[:denger] = "ユーザー登録に失敗しました"
+      flash.now[:denger] = 'ユーザー登録に失敗しました'
       render :new
     end
   end
@@ -29,7 +29,7 @@ class UsersController < ApplicationController
     if @user.update(user_params)
       redirect_to @user, notice: 'ユーザーを更新しました。'
     else
-      flash.now[:denger] = "ユーザー更新に失敗しました"
+      flash.now[:denger] = 'ユーザー更新に失敗しました'
       render :edit
     end
   end
