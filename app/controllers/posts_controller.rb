@@ -2,11 +2,11 @@ class PostsController < ApplicationController
   skip_before_action :require_login, only: %i[index show]
 
   def index
-    @posts =  if current_user
-                current_user.feed.order(created_at: :desc).page(params[:page])
-              else
-                Post.all.order(created_at: :desc).page(params[:page])
-              end
+    @posts = if current_user
+               current_user.feed.order(created_at: :desc).page(params[:page])
+             else
+               Post.all.order(created_at: :desc).page(params[:page])
+             end
     @users = User.recent(5)
   end
 

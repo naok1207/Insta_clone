@@ -67,7 +67,6 @@ class User < ApplicationRecord
     like_posts.include?(post)
   end
 
-
   # フォローをするメソッド
   def follow(other_user)
     # following にユーザを格納することでcreateと同様の処理を実現している
