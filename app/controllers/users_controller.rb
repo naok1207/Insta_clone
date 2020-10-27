@@ -1,6 +1,10 @@
 class UsersController < ApplicationController
   skip_before_action :require_login, only: [:new, :create]
 
+  def index
+    @users = User.where.not(id: current_user.id).page(params[:page])
+  end
+
   def show
     @user = User.find(params[:id])
   end
