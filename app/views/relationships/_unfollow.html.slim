@@ -1,0 +1,6 @@
+/ path: relationship/:id/ relationshipのidが必要であるためactive_relationshipsよりデータを検索
+= form_with url: relationship_path(current_user.active_relationships.find_by(followed_id: user.id)), method: :delete do |f|
+  / cssにより通常時フォロー中, hover時フォロー解除が表示されるように設定
+  / button_tagでないとうまく実装できなかった
+  = button_tag type: "submit", class: "btn btn-primary active w-120px", id: "unfollow" do
+    |

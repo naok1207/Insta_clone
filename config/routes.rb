@@ -5,10 +5,11 @@ Rails.application.routes.draw do
   post   '/login',   to: "sessions#create"
   delete '/logout',  to: "sessions#destroy"
 
-  resources :users, only: %i[ show new create edit update destroy ]
+  resources :users, only: %i[ index show new create edit update destroy]
   resources :posts, shallow: true do
     resources :comments
   end
   resources :likes, only: %i[ create destroy ]
+  resources :relationships, only: %i[ create destroy ]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

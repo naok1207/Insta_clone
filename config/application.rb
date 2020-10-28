@@ -20,6 +20,7 @@ module InstaClone
       g.assets false
       g.skip_routes false
       g.test_framework false
+      g.helper false
     end
 
     config.i18n.default_locale = :ja
