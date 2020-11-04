@@ -9,7 +9,7 @@ class SearchPostsForm
   # パラメータの属性を指定
   attribute :body, :string
 
-  def search
+  def search(body)
     # Post.distinct 一意制約付きで.allメソッドを利用するようなもの
     # 個人的には必要ないと思ったため設定しない
     Post.where('body LIKE ?', "%#{body}%") if body.present?
