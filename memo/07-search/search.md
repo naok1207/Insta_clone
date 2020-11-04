@@ -94,6 +94,53 @@ end
 どうしたものか、、、
 APIとかじゃないから気にしなくていいのかな？
 
+## jsを利用しての実装
+### model
+```ruby
+class Post < ApplicationRecord
+  ...
+  # body: クエリパラメータから取得した値
+  def search(body)
+    Post.where('body LIKE ?', "%#{body}%") if body.present?
+  end
+end
+```
+### controller
+```ruby
+class PostControllers < ApplicationControllers
+  def search
+    @posts = Post.search(params[:body]).includes(:user).page(params[:page])
+  end
+end
+```
+
+### view
+```
+# .slim.html
+.form-inline.my-2.my-lg-0.mr-auto
+  - if params[:body].present?
+    input.form-control.mr-sm-2#search_input placeholder='本文' value="#{params[:body]}"
+    = link_to "Search", search_posts_path, class: 'btn btn-outline-success my-2 my-sm-0', id: 'search_submit'
+  - else
+    input.form-control.mr-sm-2#search_input placeholder='本文'
+    = link_to "Search", search_posts_path(body: params[:body]), class: 'btn btn-outline-success my-2 my-sm-0', id: 'search_submit'
+```
+```
+# .js
+$(function() {
+  var input = $('#search_input');
+  var submit = $('#search_submit');
+  var href = '/posts/search?body=';
+  input.on('input', function(event) {
+    var value = input.val();
+    submit.attr('href', href + value);
+    console.log(value);
+  });
+}); 
+```
+
+やりたかったことは実装できた
+
 ## 参考
 [ActiveModel::Attributesを使う](https://qiita.com/kazutosato/items/91c5c989f98981d06cd4)
 [RailsのStrong Parametersを調べる](https://qiita.com/mochio/items/45b9172a50a6ebb0bee0)
