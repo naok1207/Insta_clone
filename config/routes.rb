@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :users, only: %i[ index show new create edit update destroy]
   resources :posts, shallow: true do
     resources :comments
+    get :search, on: :collection
   end
   resources :likes, only: %i[ create destroy ]
   resources :relationships, only: %i[ create destroy ]
