@@ -14,6 +14,7 @@ class Mypage::AccountsController < ApplicationController
   end
 
   private
+
   def account_params
     params.require(:user).permit(:avatar, :username)
   end

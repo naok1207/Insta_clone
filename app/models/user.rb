@@ -23,7 +23,7 @@ class User < ApplicationRecord
   validates :username, presence: true, length: { minimum: 4, maximum: 20 }
   validates :email, uniqueness: true
 
-  # if: -> { new_record? || changes[:crypted_password] } 
+  # if: -> { new_record? || changes[:crypted_password] }
   # ユーザーがパスワード以外のプロフィール項目を更新したい場合に、パスワードの入力を省略できるようになる。
   validates :password, presence: true, length: { minimum: 3 }, if: -> { new_record? || changes[:crypted_password] }
   validates :password, confirmation: true, if: -> { new_record? || changes[:crypted_password] }
