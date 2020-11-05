@@ -10,7 +10,7 @@
     .profile-box.p-3
       .row.no-gutters
         .col-2
-          = image_tag 'profile-placeholder.png', size: "40x40", class: "rounded-circle mr-1"
+          = image_tag @post.user.avatar.url, size: "40x40", class: "rounded-circle mr-1"
         .col-10
           .d-flex.align-items-center.h-100
             = @post.user.username
@@ -26,7 +26,7 @@
     .post-body.p-3 id='comments'
       .row.no-gutters
         .col-2
-          = image_tag 'profile-placeholder.png', size: "40x40", class: "rounded-circle mr-1"
+          = image_tag @post.user.avatar.url, size: "40x40", class: "rounded-circle mr-1"
         .col-10
           = @post.body
       hr

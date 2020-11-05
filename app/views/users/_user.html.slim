@@ -1,5 +1,5 @@
 .user.mb-3.d-flex.justify-content-between.pb-3.border-bottom
   = link_to user_path(user) do
-    = image_tag 'profile-placeholder.png', size: '40x40', class: 'rounded-circle mr-1'
+    = image_tag user.avatar.url, size: '40x40', class: 'rounded-circle mr-1'
     = user.username
   = render 'relationships/follow_area', user: user
