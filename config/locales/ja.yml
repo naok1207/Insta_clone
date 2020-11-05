@@ -9,6 +9,7 @@ ja:
         id: ID
         username: ユーザー名
         email: メールアドレス
+        avatar: アバター
         password: パスワード
         password_confirmation: パスワード（確認）
         created_at: 登録日時
