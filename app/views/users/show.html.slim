@@ -1,10 +1,16 @@
 .container
   .row
-    .col-md-6.offset-md-3
+    .col-md-10.offset-md-1
       .card
         .card-body
           .user.mb-3.d-flex.justify-content-between
             = link_to user_path(@user) do
               = image_tag 'profile-placeholder.png', size: '40x40', class: 'rounded-circle mr-1'
               = @user.username
-            = render 'relationships/follow_area', user: @user
+            - if current_user == @user
+              = link_to "編集", edit_user_path(current_user), class: "btn btn-outline-primary w-120px"
+            - else
+              = render 'relationships/follow_area', user: @user
+          hr
+          .row
+            = render partial: 'posts/thumbnail_post', collection: @user.posts
