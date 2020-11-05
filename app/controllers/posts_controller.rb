@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  skip_before_action :require_login, only: %i[index show]
+  skip_before_action :require_login, only: %i[index show search]
 
   def index
     @posts = if current_user
@@ -46,6 +46,11 @@ class PostsController < ApplicationController
     post = current_user.posts.find(params[:id])
     post.destroy
     redirect_to posts_path
+  end
+
+  def search
+    @posts = @search_form.search.includes(:user).page(params[:page])
+    # binding pry
   end
 
   private
