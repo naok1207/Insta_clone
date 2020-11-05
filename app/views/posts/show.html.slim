@@ -1,39 +1,39 @@
 .card.post-show
-    .image-box
-        .swiper-container
-            .swiper-wrapper
-                - @post.images.each do |image|
-                    .swiper-slide
-                        = image_tag image.url, class: "card-img-top"
-            .swiper-pagination
-    .image-info-box
-        .profile-box.p-3
-            .row.no-gutters
-                .col-2
-                    = image_tag 'profile-placeholder.png', size: "40x40", class: "rounded-circle mr-1"
-                .col-10
-                    .d-flex.align-items-center.h-100
-                        = @post.user.username
-                        .ml-auto
-                            - if @post.user == current_user
-                                = link_to @post, method: :delete do
-                                    i.fas.fa-trash-alt
-                                = link_to edit_post_path(@post) do
-                                        i.fas.fa-edit.ml-2
-                            - elsif current_user
-                                = render('likes/like', post: @post)
-        hr.m-0
-        .post-body.p-3 id='comments'
-            .row.no-gutters
-                .col-2
-                    = image_tag 'profile-placeholder.png', size: "40x40", class: "rounded-circle mr-1"
-                .col-10
-                    = @post.body
-            hr
-            = render @comments
-        hr.m-0
-        .post-comment.p-3
-            = form_with model: [@post, @comment], remote: true, class: 'form-inline mb-0' do |f|
-                = f.text_field :body, class: 'form-control input-comment-body', placeholder: 'コメント'
-                = f.submit '投稿', class: 'btn btn-primary btn-raised'
+  .image-box
+    .swiper-container
+      .swiper-wrapper
+        - @post.images.each do |image|
+          .swiper-slide
+            = image_tag image.url, class: "card-img-top"
+      .swiper-pagination
+  .image-info-box
+    .profile-box.p-3
+      .row.no-gutters
+        .col-2
+          = image_tag 'profile-placeholder.png', size: "40x40", class: "rounded-circle mr-1"
+        .col-10
+          .d-flex.align-items-center.h-100
+            = @post.user.username
+            .ml-auto
+              - if @post.user == current_user
+                = link_to @post, method: :delete do
+                  i.fas.fa-trash-alt
+                = link_to edit_post_path(@post) do
+                    i.fas.fa-edit.ml-2
+              - elsif current_user
+                = render('likes/like', post: @post)
+    hr.m-0
+    .post-body.p-3 id='comments'
+      .row.no-gutters
+        .col-2
+          = image_tag 'profile-placeholder.png', size: "40x40", class: "rounded-circle mr-1"
+        .col-10
+          = @post.body
+      hr
+      = render @comments
+    hr.m-0
+    .post-comment.p-3
+      = form_with model: [@post, @comment], remote: true, class: 'form-inline mb-0' do |f|
+        = f.text_field :body, class: 'form-control input-comment-body', placeholder: 'コメント'
+        = f.submit '投稿', class: 'btn btn-primary btn-raised'
 #modal-container
