@@ -1,0 +1,8 @@
+.col-md-4.mb-3.thumbnail_post
+  = link_to thumbnail_post do
+    .swiper-container
+			.swiper-wrapper
+				- thumbnail_post.images.each do |image|
+					.swiper-slide
+						= image_tag image.url
+      
