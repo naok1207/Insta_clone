@@ -5,10 +5,13 @@
         .card-body
           .user.mb-3.d-flex.justify-content-between
             = link_to user_path(@user) do
-              = image_tag 'profile-placeholder.png', size: '40x40', class: 'rounded-circle mr-1'
+              - if @user.avatar.present?
+                = image_tag 'profile-placeholder.png', size: '40x40', class: 'rounded-circle mr-1'
+              - else
+                = image_tag @user.avatar.url, size: '40x40', class: 'rounded-circle mr-1'
               = @user.username
             - if current_user == @user
-              = link_to "編集", edit_user_path(current_user), class: "btn btn-outline-primary w-120px"
+              = link_to 'プロフィール編集', edit_mypage_account_path, class: 'btn btn-outline-primary'
             - else
               = render 'relationships/follow_area', user: @user
           hr
