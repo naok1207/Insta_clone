@@ -1,10 +1,11 @@
 class Mypage::AccountsController < ApplicationController
   def edit
-    @user = current_user
+    @user = User.find(current_user.id)
   end
 
   def update
-    @user = current_user
+    # @user = current_user の場合validationエラーが起こった際に挙動がおかしくなってしまう
+    @user = User.find(current_user.id)
     if @user.update(account_params)
       redirect_to @user, notice: 'プロフィールを更新しました。'
     else
