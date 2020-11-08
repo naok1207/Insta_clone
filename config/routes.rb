@@ -5,7 +5,10 @@ Rails.application.routes.draw do
   post   '/login',   to: "sessions#create"
   delete '/logout',  to: "sessions#destroy"
 
-  resources :users, only: %i[ index show new create edit update destroy]
+  resources :users, only: %i[ index show new create update destroy]
+  namespace :mypage do
+    resources :accounts, only: %i[ edit update ]
+  end
   resources :posts, shallow: true do
     resources :comments
     get :search, on: :collection

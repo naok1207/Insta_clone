@@ -1,24 +1,24 @@
 .card.mb-5.post
-    .card-header
-        .d-flex.align-items-center
-            = image_tag 'profile-placeholder.png', size: "40x40", class: "rounded-circle mr-1"
-            = link_to post.user.username, post.user
-            - if post.user == current_user
-                .ml-auto
-                    = link_to post, method: :delete do
-                        i.fas.fa-trash-alt
-                    = link_to edit_post_path(post) do
-                        i.fas.fa-edit.ml-2
-            - elsif current_user
-                .ml-auto
-                    = render('likes/like', post: post)
-    = link_to post do
-		.swiper-container
-			.swiper-wrapper
-				- post.images.each do |image|
-					.swiper-slide
-						= image_tag image.url, class: "card-img-top"
-			.swiper-pagination
-    .card-body
-        .card-text
-            = post.body
+  .card-header
+    .d-flex.align-items-center
+      = image_tag post.user.avatar.url, size: "40x40", class: "rounded-circle mr-1"
+      = link_to post.user.username, post.user
+      - if post.user == current_user
+        .ml-auto
+          = link_to post, method: :delete do
+            i.fas.fa-trash-alt
+          = link_to edit_post_path(post) do
+            i.fas.fa-edit.ml-2
+      - elsif current_user
+        .ml-auto
+          = render('likes/like', post: post)
+  = link_to post do
+    .swiper-container
+      .swiper-wrapper
+        - post.images.each do |image|
+          .swiper-slide
+            = image_tag image.url, class: "card-img-top"
+      .swiper-pagination
+  .card-body
+    .card-text
+      = post.body
