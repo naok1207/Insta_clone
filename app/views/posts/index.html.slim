@@ -1,21 +1,21 @@
 .container
-  .row
-    .col-lg-8.col-12
-      - if @posts.present?
-        = render @posts
-        = paginate @posts
-      - else
-        .text-center.mb-5 投稿がありません
-    .col-lg-4.col-12
-      - if logged_in?
-        .profile-box.mb-3
-          = image_tag current_user.avatar.url, size: '50x50', class: 'rounded-circle mr-1'
-          = current_user.username
-      .users-box
-        .card
-          .card-header
-            | ユーザー
-          .card-body
-            = render @users
-          .card-footer
-            = link_to "すべて見る", users_path
+    .row
+        .col-lg-8.col-12
+            - if @posts.present?
+                = render @posts
+                = paginate @posts
+            - else
+                .text-center.mb-5 投稿がありません
+        .col-lg-4.col-12
+            - if logged_in?
+                .profile-box.mb-3
+                    = image_tag 'profile-placeholder.png', size: '50x50', class: 'rounded-circle mr-1'
+                    = current_user.username
+            .users-box
+                .card
+                    .card-header
+                        | ユーザー
+                    .card-body
+                        = render @users
+                    .card-footer
+                        = link_to "すべて見る", users_path

@@ -3,7 +3,6 @@
 # Table name: users
 #
 #  id               :bigint           not null, primary key
-#  avatar           :string(255)
 #  crypted_password :string(255)
 #  email            :string(255)      not null
 #  salt             :string(255)
@@ -18,16 +17,12 @@
 class User < ApplicationRecord
   authenticates_with_sorcery!
 
-  mount_uploader :avatar, AvatarUploader
-
   validates :username, presence: true, length: { minimum: 4, maximum: 20 }
   validates :email, uniqueness: true
 
-  # if: -> { new_record? || changes[:crypted_password] }
-  # ユーザーがパスワード以外のプロフィール項目を更新したい場合に、パスワードの入力を省略できるようになる。
-  validates :password, presence: true, length: { minimum: 3 }, if: -> { new_record? || changes[:crypted_password] }
-  validates :password, confirmation: true, if: -> { new_record? || changes[:crypted_password] }
-  validates :password_confirmation, presence: true, if: -> { new_record? || changes[:crypted_password] }
+  validates :password, presence: true, length: { minimum: 3 }
+  validates :password, confirmation: true
+  validates :password_confirmation, presence: true
 
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy

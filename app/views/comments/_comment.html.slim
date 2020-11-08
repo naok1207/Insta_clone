@@ -1,7 +1,7 @@
 .comment id="comment-#{comment.id}"
     .row.no-gutters
         .col-2
-            = image_tag comment.user.avatar.url, size: "40x40", class: "rounded-circle mr-1"
+            = image_tag 'profile-placeholder.png', size: "40x40", class: "rounded-circle mr-1"
         .col-9
             .ml-1.pr-1
                 span.font-weight-bold.mr-1 = comment.user.username

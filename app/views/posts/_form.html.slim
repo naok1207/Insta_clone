@@ -1,11 +1,11 @@
 = form_with model: @post, local: true do |f|
-  = render 'shared/error_messages', object: @post
-  .form-group
-    = f.label :images
-    = f.file_field :images, multiple: true, class: 'form-control'
-    - @post.images.each do |image|
-      = image_tag image.url, size: '100x100'
-  .form-group
-    = f.label :body
-    = f.text_area :body, class: 'form-control'
-  = button_tag "登録する", type: 'submit', class: 'btn btn-raised btn-primary w-100 mt-2 mb-2'
+    = render 'shared/error_messages', object: @post
+    .form-group
+        = f.label :images
+        = f.file_field :images, multiple: true, class: 'form-control'
+        - @post.images.each do |image|
+            = image_tag image.url, size: '100x100'
+    .form-group
+        = f.label :body
+        = f.text_area :body, class: 'form-control'
+    = button_tag "登録する", type: 'submit', class: 'btn btn-raised btn-primary w-100 mt-2 mb-2'

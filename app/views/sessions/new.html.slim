@@ -1,16 +1,16 @@
 .container
-  h1.text-center.mb-2 Log in
-  .row.justify-content-center
-    = form_with scope: :session, local: true, class: 'col-md-6 col-10' do |f|
-      .form-group
-        i.fas.fa-envelope.prefix.grey-text.mr-1
-        = f.label :email
-        = f.text_field :email, class: 'form-control', placeholder: "Email"
-      .form-group
-        i.fas.fa-lock.prefix.grey-text.mr-1
-        = f.label :password
-        = f.password_field :password, class: 'form-control', placeholder: "Password"
-      = button_tag type: 'submit', class: 'btn btn-raised btn-primary w-100 mt-2 mb-3' do
-        i.fas.fa-user.prefix.mr-1
-        | Login
-      = link_to 'Sign up?', new_user_path, class: 'text-muted'
+    h1.text-center.mb-2 Log in
+    .row.justify-content-center
+        = form_with scope: :session, local: true, class: 'col-md-6 col-10' do |f|
+            .form-group
+                i.fas.fa-envelope.prefix.grey-text.mr-1
+                = f.label :email
+                = f.text_field :email, class: 'form-control', placeholder: "Email"
+            .form-group
+                i.fas.fa-lock.prefix.grey-text.mr-1
+                = f.label :password
+                = f.password_field :password, class: 'form-control', placeholder: "Password"
+            = button_tag type: 'submit', class: 'btn btn-raised btn-primary w-100 mt-2 mb-3' do
+                i.fas.fa-user.prefix.mr-1
+                | Login
+            = link_to 'Sign up?', new_user_path, class: 'text-muted'
