@@ -1,10 +1,10 @@
 class Mypage::AccountsController < ApplicationController
   def edit
-    @user = User.find(params[:id])
+    @user = current_user
   end
 
   def update
-    @user = User.find(params[:id])
+    @user = current_user
     if @user.update(account_params)
       redirect_to @user, notice: 'プロフィールを更新しました。'
     else
