@@ -28,7 +28,7 @@ class Activity < ApplicationRecord
   belongs_to :subject, polymorphic: true
   belongs_to :user
 
-  scope :recent, ->(count) { order(created_at: :desc).limit(count)}
+  scope :recent, ->(count) { order(created_at: :desc).limit(count) }
 
   # 列挙定数を定義
   # パラメータは名前定義で送られる(データは数値で格納される)

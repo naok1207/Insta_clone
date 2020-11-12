@@ -61,7 +61,6 @@ class User < ApplicationRecord
   # scope 可読性を高めるためにメソッドをまとめるために用いる
   # 登録日を新しい順に並べ変え引数の数だけ取り出すメソッド
   scope :recent, ->(count) { order(created_at: :desc).limit(count) }
-  
 
   def like(post)
     likes.create(post_id: post.id)

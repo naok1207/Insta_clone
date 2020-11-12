@@ -32,7 +32,7 @@ class Comment < ApplicationRecord
   after_create_commit :create_activities
 
   private
-  
+
   # コールバック用メソッド
   # 通知を作成する
   def create_activities
