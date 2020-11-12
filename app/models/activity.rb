@@ -21,6 +21,9 @@
 #  fk_rails_...  (user_id => users.id)
 #
 class Activity < ApplicationRecord
+  # ルーティングをメソッドを利用するために読み込む
+  # めっちゃあれ？routes合ってるのに...ってなりました。
+  include Rails.application.routes.url_helpers
   # ポリモーフィックのリレーションを定義
   belongs_to :subject, polymorphic: true
   belongs_to :user
