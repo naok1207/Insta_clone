@@ -18,8 +18,17 @@ class Relationship < ApplicationRecord
   # class_name: 'User' 参照先をUserクラスであると明示する
   belongs_to :follower, class_name: 'User'
   belongs_to :followed, class_name: 'User'
+  has_one :activity, as: :subject, dependent: :destroy
   validates :follower_id, presence: true
   validates :followed_id, presence: true
   # 一意制約を設定
   validates :follower_id, uniqueness: { scope: :followed_id }
+
+  after_create_commit :create_activities
+
+  private
+
+  def create_activities
+    Activity.create(subject: self, user: followed, action_type: :followed_me)
+  end
 end
