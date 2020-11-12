@@ -286,7 +286,6 @@ class Like < ApplicationRecord
   end
 end
 ```
-
 いいね通知用のview partialを作成
 ```
 # app/views/mypage/activities/_liked_to_own_post.html.slim
