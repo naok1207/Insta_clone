@@ -36,7 +36,6 @@ class Comment < ApplicationRecord
   # コールバック用メソッド
   # 通知を作成する
   def create_activities
-    return if post.user == current_user
     Activity.create(subject: self, user: post.user, action_type: :commented_to_own_post)
   end
 end
