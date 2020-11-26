@@ -15,7 +15,7 @@ end
 #### 2.`config/routes.rb`に追記
 ```ruby
 Rails.application.routes.draw do
-  mount letterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
+  mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
 end
 ```
 
@@ -42,7 +42,7 @@ class UserMailer < ActionMailer::Base
 
   def send_message_to_user(user)
     @user = user
-    mail to: @user.email
+    mail to: @user.email,
       subject: "メールの件名が入ります"
   end
 ```
