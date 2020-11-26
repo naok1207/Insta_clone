@@ -1,0 +1,5 @@
+h1= "#{@user_to.username}さん"
+
+p= "#{@user_from.username}さんがあなたをフォローしました。"
+
+= link_to "確認する", user_url(@activity.subject.follower)
