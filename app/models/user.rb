@@ -56,6 +56,8 @@ class User < ApplicationRecord
   # source: :follower 出口をfollower_idとする
   has_many :followers, through: :passive_relationships, source: :follower
 
+  has_many :activities, dependent: :destroy
+
   # scope 可読性を高めるためにメソッドをまとめるために用いる
   # 登録日を新しい順に並べ変え引数の数だけ取り出すメソッド
   scope :recent, ->(count) { order(created_at: :desc).limit(count) }
