@@ -41,6 +41,7 @@ gem 'font-awesome-sass'
 gem 'carrierwave'
 gem 'rmagick', '4.1.2'
 gem 'kaminari'
+gem 'config'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
