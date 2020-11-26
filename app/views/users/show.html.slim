@@ -11,6 +11,7 @@
                 = image_tag @user.avatar.url, size: '40x40', class: 'rounded-circle mr-1'
               = @user.username
             - if current_user == @user
+              = link_to '通知一覧', mypage_activities_path, class: 'btn btn-outline-primary ml-auto mr-3'
               = link_to 'プロフィール編集', edit_mypage_account_path, class: 'btn btn-outline-primary'
             - else
               = render 'relationships/follow_area', user: @user

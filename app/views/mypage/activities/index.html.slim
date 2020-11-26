@@ -1,0 +1,15 @@
+.container
+  .row.justify-content-center
+    .card.col-lg-6.col-md-8.col-10
+      .card-body
+        / 通知がある場合
+        - if @activities.present?
+          - @activities.each do |activity|
+            / action_typeにと同じ名前のpartialを取得し, オブジェクトを渡す
+            = render "#{activity.action_type}", activity: activity
+          = paginate @activities
+
+        / 通知がない場合
+        - else
+          .text-center
+            | お知らせはありません

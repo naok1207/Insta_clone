@@ -10,6 +10,13 @@ nav.navbar.navbar-expand.navbar-light.bg-light.z-index100
         = link_to new_post_path, class: "nav-link" do
           i.far.fa-image
       li.nav-item
+        .dropdown
+          a#dropdownMenuButton.nav-link.position-relative href="#" data-toggle="dropdown" aria-expanded="false" aria-haspopup="true"
+            = icon 'far', 'heart', class: 'fa-lg'
+            = render 'shared/unread_badge'
+          #header-activities.dropdown-menu.dropdown-menu-right.m-0.p-0 aria-labelledby="dropdownMenuButton"
+            = render 'shared/header_activities'
+      li.nav-item
         = link_to current_user, class: "nav-link" do
           i.fas.fa-user.prefix.mr-1
       li.nav-item

@@ -13,7 +13,7 @@
           = image_tag @post.user.avatar.url, size: "40x40", class: "rounded-circle mr-1"
         .col-10
           .d-flex.align-items-center.h-100
-            = @post.user.username
+            = link_to @post.user.username, user_path(@post.user)
             .ml-auto
               - if @post.user == current_user
                 = link_to @post, method: :delete do
