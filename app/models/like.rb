@@ -33,6 +33,6 @@ class Like < ApplicationRecord
 
   def create_activities
     activity = Activity.create(subject: self, user: post.user, action_type: :liked_to_own_post)
-    UserMailer.liked_to_own_post(self.user, post.user, activity).deliver_now
+    UserMailer.liked_to_own_post(user, post.user, activity).deliver_now
   end
 end

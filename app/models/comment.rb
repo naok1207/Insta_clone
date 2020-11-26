@@ -37,6 +37,6 @@ class Comment < ApplicationRecord
   # 通知を作成する
   def create_activities
     activity = Activity.create(subject: self, user: post.user, action_type: :commented_to_own_post)
-    UserMailer.commented_to_own_post(self.user, post.user, activity).deliver_now
+    UserMailer.commented_to_own_post(user, post.user, activity).deliver_now
   end
 end
