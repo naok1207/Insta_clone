@@ -29,7 +29,7 @@ class Relationship < ApplicationRecord
   private
 
   def create_activities
-    activity = Activity.create(subject: self, user: followed, action_type: :followed_me)
-    UserMailer.followed_me(followed, follower, activity).deliver_now
+    Activity.create(subject: self, user: followed, action_type: :followed_me)
+    UserMailer.followed_me(followed, follower).deliver_now
   end
 end
