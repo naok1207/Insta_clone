@@ -39,8 +39,10 @@ gem 'jquery-rails'
 gem 'popper_js'
 gem 'font-awesome-sass'
 gem 'carrierwave'
-gem 'rmagick'
+gem 'rmagick', '4.1.2'
 gem 'kaminari'
+gem 'config'
+gem 'letter_opener_web'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
