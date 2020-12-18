@@ -1,3 +1,5 @@
+require 'sidekiq/web'
+
 Rails.application.routes.draw do
   root to: "posts#index"
   # 認証
@@ -19,7 +21,10 @@ Rails.application.routes.draw do
   resources :activities, only: [] do
     patch :read, on: :member
   end
-
-  mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
+  
+  if Rails.env.development?
+    mount LetterOpenerWeb::Engine, at: '/letter_opener'
+    mount Sidekiq::Web, at: '/sidekiq'
+  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
