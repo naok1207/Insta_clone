@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   namespace :mypage do
     resources :accounts, only: %i[ edit update ]
     resources :activities, only: %i[ index ]
+    resources :notification_settings, only: %i[ edit update ]
   end
   resources :posts, shallow: true do
     resources :comments, only: %i[ create edit update destroy ]

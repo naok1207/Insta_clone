@@ -12,6 +12,9 @@ ja:
         avatar: アバター
         password: パスワード
         password_confirmation: パスワード（確認）
+        notification_on_comment: コメント時の通知メール
+        notification_on_like: いいねの通知メール
+        notification_on_follow: フォロー時の通知メール
       post:
         id: ID
         body: 本文
