@@ -36,7 +36,7 @@ class Comment < ApplicationRecord
   # コールバック用メソッド
   # 通知を作成する
   def create_activities
-    if post.user.notification_on_comment?
+    if post.user.notification_on_comment? && post.user != current_user
       Activity.create(subject: self, user: post.user, action_type: :commented_to_own_post)
       UserMailer.commented_to_own_post(post.user, user, self).deliver_now
     end
