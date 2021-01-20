@@ -1,0 +1,78 @@
+.check_label
+{
+  position: relative;
+  margin: 5px 0;
+  margin-left: 40px;
+  cursor: pointer;
+}
+.check_label input 
+{
+  appearance: none;
+  display: none;
+}
+.check_label span
+{
+  position: relative;
+  display: block;
+  width: 60px;
+  height: 30px;
+  background: #222;
+  border-radius: 30px;
+  box-shadow: inset 0 2px 15px rgba(0,0,0,0.2),
+              inset 0 2px 2px rgba(0,0,0,0.2),
+              inset 0 -1px 1px rgba(0,0,0,0.2);
+}
+.check_label .indicator
+{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 30px;
+  height: 30px;
+  background: linear-gradient(to bottom, #444, #222);
+  border-radius: 50%;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.5),
+              inset 0 1px 1px rgba(255,255,255,0.1);
+  transition: 0.5s;
+  transform: scale(0.9);
+}
+.check_label input:checked ~ .indicator
+{
+  left: 30px;
+}
+.check_label .indicator::before
+{
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 5px;
+  height: 5px;
+  background: #f00;
+  border-radius: 50%;
+  transition: 0.5s;
+  box-shadow: 0 0 2px #f00,
+              0 0 5px #f00,
+              0 0 10px #f00,
+              0 0 15px #f00,
+              0 0 20px #f00,
+              0 0 25px #f00,
+              0 0 30px #f00;
+}
+.check_label input:checked ~ .indicator::before
+{
+  background: #0f0;
+  box-shadow: 0 0 2px #0f0,
+              0 0 5px #0f0,
+              0 0 10px #0f0,
+              0 0 15px #0f0,
+              0 0 20px #0f0,
+              0 0 25px #0f0,
+              0 0 30px #0f0;
+}
+.check_labeling
+{
+  margin-top: 12px;
+  margin-left: 20px;
+}
