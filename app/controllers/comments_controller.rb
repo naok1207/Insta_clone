@@ -1,6 +1,8 @@
 class CommentsController < ApplicationController
   def create
-    @comment = current_user.comments.create(comment_params)
+    @comment = current_user.comments.build(comment_params)
+    # コメント通知メール
+    UserMailer.commented_to_own_post(@comment.post.user, @comment.user, @comment).deliver_now if @comment.save && @comment.post.user.notification_on_comment? && @comment.post.user != current_user
   end
 
   def edit

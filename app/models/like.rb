@@ -32,9 +32,6 @@ class Like < ApplicationRecord
   private
 
   def create_activities
-    if post.user.notification_on_like?
-      Activity.create(subject: self, user: post.user, action_type: :liked_to_own_post)
-      UserMailer.liked_to_own_post(post.user, user, post).deliver_now
-    end
+    Activity.create(subject: self, user: post.user, action_type: :liked_to_own_post)
   end
 end

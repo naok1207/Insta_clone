@@ -1,7 +1,7 @@
 class Mypage::NotificationSettingsController < ApplicationController
   # 通知設定編集
   def edit
-    @user = User.find(current_user.id)
+    @user = current_user
   end
 
   # 通知設定更新

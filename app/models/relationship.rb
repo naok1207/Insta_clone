@@ -29,9 +29,6 @@ class Relationship < ApplicationRecord
   private
 
   def create_activities
-    if followed.notification_on_follow?
-      Activity.create(subject: self, user: followed, action_type: :followed_me)
-      UserMailer.followed_me(followed, follower).deliver_now
-    end
+    Activity.create(subject: self, user: followed, action_type: :followed_me)
   end
 end
